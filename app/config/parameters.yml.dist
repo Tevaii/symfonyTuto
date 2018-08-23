@@ -1,0 +1,7 @@
+parameters:
+    database_driver: mysqli
+    database_host: db
+    database_port: 3306
+    database_name: your_database_name
+    database_user: your_user
+    database_password: your_user_password
