@@ -18,9 +18,10 @@ class AdvertController extends Controller
     {
         $tag = $request->query->get('tag');
 
-        return new Response(
-            "Affichage de l'annonce d'id : ".$id.", avec le tag : ".$tag
-        );
+        return $this->render('OCPlatformBundle:Advert:view.html.twig', array(
+            'id'  => $id,
+            'tag' => $tag,
+        ));
 
     }
     //Décomposition de la composition d'un objet response
@@ -61,7 +62,7 @@ class AdvertController extends Controller
         $url = $this->get('router')->generate('oc_platform_view',array('id'=>5));
 
         //url vaut : "/platform/advert/5"
-        return new Response("L'URL de l'annonce d'if 5 est : ".$url);
+        return new Response("L'URL de l'annonce d'id 5 est : ".$url);
     }
 }
 ?>
