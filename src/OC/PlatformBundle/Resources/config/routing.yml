@@ -5,8 +5,8 @@ oc_platform_home:
     defaults:
         _controller: OCPlatformBundle:Advert:index
         page:   1
-    requierments:
-        page;   \d*
+    requirements:
+        page:   \d*
 
 oc_platform_view:
     path:      /advert/{id}
@@ -14,6 +14,11 @@ oc_platform_view:
         _controller: OCPlatformBundle:Advert:view
     requirements:
         id: \d+
+
+oc_platform_testerror:
+    path:   /error/{id}
+    defaults:
+        _controller: OCPlatformBundle:Advert:error
 
 oc_platform_add:
     path:      /add

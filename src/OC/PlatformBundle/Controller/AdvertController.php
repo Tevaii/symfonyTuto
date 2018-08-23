@@ -15,13 +15,29 @@ class AdvertController extends Controller
     //$id correspond à l'argument $id présent dans l'url (trucs/{id})
     //on injecte la requete dans les arguments de la fonction
     public function viewAction($id,Request $request)
-    {/*
+    {
         $tag = $request->query->get('tag');
 
         return new Response(
             "Affichage de l'annonce d'id : ".$id.", avec le tag : ".$tag
         );
-*/
+
+    }
+    //Décomposition de la composition d'un objet response
+    public function errorAction($id)
+    {
+        //Creation de la réponse
+        $response = new Response();
+
+        //Definition du contenu
+        $response->setContent("Ceci est une page d'erreur 404");
+
+        //Definition du code HTTP à "Not Found"
+
+        $response->setStatusCode(Response::HTTP_NOT_FOUND);
+
+        //On retourne la réponse
+        return $response;
     }
 
     //Creation d'une vue plus complexe avec un slug
