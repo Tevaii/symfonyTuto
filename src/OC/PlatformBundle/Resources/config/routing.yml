@@ -14,7 +14,12 @@ oc_platform_view:
         _controller: OCPlatformBundle:Advert:view
         id: 1
     requirements:
-        id: \d+
+        id: \d+ #Si le champ est vide ou n'est pas un entier ERROR
+
+oc_platform_returntype:
+    path:   /json/{id}
+    defaults:
+        _controller: OCPlatformBundle:Advert:returnJson
 
 oc_platform_testerror:
     path:   /error/{id}

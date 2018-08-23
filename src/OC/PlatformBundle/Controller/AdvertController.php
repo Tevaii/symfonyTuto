@@ -12,15 +12,46 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class AdvertController extends Controller
 {
 
-    //La route qui fait appel çà cette fonction est OCPlatorfmBundle:Adver:view
-    //$id correspond à l'argument $id présent dans l'url (trucs/{id})
-    //on injecte la requete dans les arguments de la fonction
+
     public function viewAction($id,Request $request)
     {
-        $url = $this->get('router')->generate('oc_platform_home');
+        //Récupération de la session
+        $session = $request->getSession();
 
-        return new RedirectResponse($url);
+        //recuperation de l'id du user
+        $userID = $session->get('user_id');
 
+        //modification de l'id du user
+        $session->set('user_id',$id);
+
+        return $this->render('OCPlatformBundle:Advert:view.html.twig', array(
+            'id' => $id
+        ));
+
+    }
+
+    public function addAction(Request $request)
+    {
+        //recupération de la session
+        $session = $request->getSession();
+        //ajout d'un message flash à la session
+        $session->getFlashBag()->add('info','Annonce bien enregistrée');
+
+        $session->getFlashBag()->add('info','Oui oui, elle est bien enregistrée !');
+
+        return $this->redirectToRoute('oc_platform_view',array('id'=>5));
+    }
+
+    public function returnJsonAction($id)
+    {
+        //création d'une reponse en json composé d'un id
+        $response = new Response(json_encode(array('id'=>$id)));
+
+        //Modification de l'entete de la reponse pour signaler au navigateur que l'on renvoi du JSON
+        $response->headers->set('content-type','application/json');
+
+        //Alternativ return new JsonResponse(array('id'=>$id))
+        return $response;
     }
     //Décomposition de la composition d'un objet response
     public function errorAction($id)
