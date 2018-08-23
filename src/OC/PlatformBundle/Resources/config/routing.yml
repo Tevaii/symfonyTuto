@@ -4,16 +4,27 @@ oc_platform_home:
     path:      /{page}
     defaults:
         _controller: OCPlatformBundle:Advert:index
-        page:        1
+        page:   1
     requirements:
-        page: \d*
+        page:   \d*
 
 oc_platform_view:
     path:      /advert/{id}
     defaults:
         _controller: OCPlatformBundle:Advert:view
+        id: 1
     requirements:
-        id: \d+
+        id: \d+ #Si le champ est vide ou n'est pas un entier ERROR
+
+oc_platform_returntype:
+    path:   /json/{id}
+    defaults:
+        _controller: OCPlatformBundle:Advert:returnJson
+
+oc_platform_testerror:
+    path:   /error/{id}
+    defaults:
+        _controller: OCPlatformBundle:Advert:error
 
 oc_platform_add:
     path:      /add
@@ -33,3 +44,12 @@ oc_platform_delete:
         _controller: OCPlatformBundle:Advert:delete
     requirements:
         id: \d+
+
+oc_platform_view_slug:
+    path:   /{year}/{slug}.{_format}
+    defaults:
+        _controller: OCPlatformBundle:Advert:viewSlug
+        format: html
+    requirements:
+        year:   \d{4}
+        format: html|xml

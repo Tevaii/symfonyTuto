@@ -4,75 +4,94 @@
 
 namespace OC\PlatformBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AdvertController extends Controller
 {
-    public function indexAction($page)
+
+
+    public function viewAction($id,Request $request)
     {
-        // On ne sait pas combien de pages il y a
-        // Mais on sait qu'une page doit être supérieure ou égale à 1
-        if ($page < 1) {
-            // On déclenche une exception NotFoundHttpException, cela va afficher
-            // une page d'erreur 404 (qu'on pourra personnaliser plus tard d'ailleurs)
-            throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
-        }
+        //Récupération de la session
+        $session = $request->getSession();
 
-        // Ici, on récupérera la liste des annonces, puis on la passera au template
+        //recuperation de l'id du user
+        $userID = $session->get('user_id');
 
-        // Mais pour l'instant, on ne fait qu'appeler le template
-        return $this->render('OCPlatformBundle:Advert:index.html.twig');
-    }
-
-    public function viewAction($id)
-    {
-        // Ici, on récupérera l'annonce correspondante à l'id $id
+        //modification de l'id du user
+        $session->set('user_id',$id);
 
         return $this->render('OCPlatformBundle:Advert:view.html.twig', array(
             'id' => $id
         ));
+
     }
 
     public function addAction(Request $request)
     {
-        // La gestion d'un formulaire est particulière, mais l'idée est la suivante :
+        //recupération de la session
+        $session = $request->getSession();
+        //ajout d'un message flash à la session
+        $session->getFlashBag()->add('info','Annonce bien enregistrée');
 
-        // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
-        if ($request->isMethod('POST')) {
-            // Ici, on s'occupera de la création et de la gestion du formulaire
+        $session->getFlashBag()->add('info','Oui oui, elle est bien enregistrée !');
 
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
-
-            // Puis on redirige vers la page de visualisation de cettte annonce
-            return $this->redirectToRoute('oc_platform_view', array('id' => 5));
-        }
-
-        // Si on n'est pas en POST, alors on affiche le formulaire
-        return $this->render('OCPlatformBundle:Advert:add.html.twig');
+        return $this->redirectToRoute('oc_platform_view',array('id'=>5));
     }
 
-    public function editAction($id, Request $request)
+    public function returnJsonAction($id)
     {
-        // Ici, on récupérera l'annonce correspondante à $id
+        //création d'une reponse en json composé d'un id
+        $response = new Response(json_encode(array('id'=>$id)));
 
-        // Même mécanisme que pour l'ajout
-        if ($request->isMethod('POST')) {
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
+        //Modification de l'entete de la reponse pour signaler au navigateur que l'on renvoi du JSON
+        $response->headers->set('content-type','application/json');
 
-            return $this->redirectToRoute('oc_platform_view', array('id' => 5));
-        }
+        //Alternativ return new JsonResponse(array('id'=>$id))
+        return $response;
+    }
+    //Décomposition de la composition d'un objet response
+    public function errorAction($id)
+    {
+        //Creation de la réponse
+        $response = new Response();
 
-        return $this->render('OCPlatformBundle:Advert:edit.html.twig');
+        //Definition du contenu
+        $response->setContent("Ceci est une page d'erreur 404");
+
+        //Definition du code HTTP à "Not Found"
+
+        $response->setStatusCode(Response::HTTP_NOT_FOUND);
+
+        //On retourne la réponse
+        return $response;
     }
 
-    public function deleteAction($id)
+    //Creation d'une vue plus complexe avec un slug
+
+    public function viewSlugAction($slug,$year,$format)
     {
-        // Ici, on récupérera l'annonce correspondant à $id
+        return new Response(
+            "Affichage de l'année '".$year."
+            ' du format '".$format."' et du slug '".$slug."'.
+            "
+        );
+    }
 
-        // Ici, on gérera la suppression de l'annonce en question
 
-        return $this->render('OCPlatformBundle:Advert:delete.html.twig');
+    //fonction de génération d'une url
+    public function indexAction()
+    {
+        //génération d'une url pour l'annonce 5
+        //1er argument : nom de la route
+        //2eme argument valeurs des paramètres
+        //$url = $this->get('router')->generate('oc_platform_view',array('id'=>5));
+
+        //url vaut : "/platform/advert/5"
+        return new Response("Ceci est la Home page!!");
     }
 }
+?>
