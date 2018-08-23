@@ -4,6 +4,7 @@
 
 namespace OC\PlatformBundle\Controller;
 
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,12 +17,9 @@ class AdvertController extends Controller
     //on injecte la requete dans les arguments de la fonction
     public function viewAction($id,Request $request)
     {
-        $tag = $request->query->get('tag');
+        $url = $this->get('router')->generate('oc_platform_home');
 
-        return $this->render('OCPlatformBundle:Advert:view.html.twig', array(
-            'id'  => $id,
-            'tag' => $tag,
-        ));
+        return new RedirectResponse($url);
 
     }
     //Décomposition de la composition d'un objet response
@@ -59,10 +57,10 @@ class AdvertController extends Controller
         //génération d'une url pour l'annonce 5
         //1er argument : nom de la route
         //2eme argument valeurs des paramètres
-        $url = $this->get('router')->generate('oc_platform_view',array('id'=>5));
+        //$url = $this->get('router')->generate('oc_platform_view',array('id'=>5));
 
         //url vaut : "/platform/advert/5"
-        return new Response("L'URL de l'annonce d'id 5 est : ".$url);
+        return new Response("Ceci est la Home page!!");
     }
 }
 ?>
