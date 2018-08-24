@@ -23,6 +23,8 @@ RUN apt-get update \
         intl \
         mbstring \
         mysqli \
+        pdo_mysql \
+        pdo_pgsql \
         xdebug \
         zip \
     && docker-php-source delete \
