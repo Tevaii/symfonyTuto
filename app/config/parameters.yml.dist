@@ -5,8 +5,8 @@ parameters:
     database_name: your_database_name
     database_user: your_user
     database_password: your_user_password
-    secret: ThisTokenIsNotSoSecretChangeItIChangedIt
+    secret: thisIsSecret
     mailer_transport: smtp
     mailer_host: 127.0.0.1
-    mailer_user: me
-    mailer_password: passWordOfMe
+    mailer_user: user
+    mailer_password: passwordOfUser
