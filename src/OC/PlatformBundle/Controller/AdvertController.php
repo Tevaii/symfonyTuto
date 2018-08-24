@@ -12,18 +12,14 @@ class AdvertController extends Controller
 {
     public function indexAction($page)
     {
-        // On ne sait pas combien de pages il y a
-        // Mais on sait qu'une page doit être supérieure ou égale à 1
-        if ($page < 1) {
-            // On déclenche une exception NotFoundHttpException, cela va afficher
-            // une page d'erreur 404 (qu'on pourra personnaliser plus tard d'ailleurs)
-            throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
+        // On récupère le service
+        $antispam = $this->container->get('oc_platform.antispam');
+
+        // Je pars du principe que $text contient le texte d'un message quelconque
+        $text = '...';
+        if ($antispam->isSpam($text)) {
+            throw new \Exception('Votre message a été détecté comme spam !');
         }
-
-        // Ici, on récupérera la liste des annonces, puis on la passera au template
-
-        // Mais pour l'instant, on ne fait qu'appeler le template
-        return $this->render('OCPlatformBundle:Advert:index.html.twig');
     }
 
     public function viewAction($id)
