@@ -1,27 +1,23 @@
-  front:
-    image: nginx:1.11.10
-    ports:
-    - "81:80"
-    links:
-    - "engine:engine"
-    volumes:
-    - ".:/home/docker:ro"
-    - "./docker/front/default.conf:/etc/nginx/conf.d/default.conf:ro"
-  engine:
-    build: ./docker/engine/dev/
-    volumes:
-    - ".:/home/docker:rw"
-    - "./docker/engine/php.ini:/usr/local/etc/php/conf.d/custom.ini:ro"
-    links:
-    - "db:db"
-    working_dir: "/home/docker"
+version: '3.3'
 
-  db:
-    image: mysql:8.0.0
+services:
+  php:
+    build: docker/
+    links:
+      - db:mysqldb
+    volumes:
+      - .:/var/www/html/
+      - ./../docker/config-php/xdebug.ini:/user/local/etc/php/conf.d/xdebug.ini
     ports:
-    - "3307:3306"
+      - 81:80
+  db:
+    image: mysql
+    volumes:
+      - db_data:/varlib/mysql
     environment:
-    - MYSQL_ROOT_PASSWORD=mypwd
-    - MYSQL_USER=myusermysql
-    - MYSQL_PASSWORD=mypwd
-    - MYSQL_DATABASE=mydatabasename
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=test
+volumes:
+  db_data:
