@@ -7,6 +7,8 @@ namespace OC\PlatformBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use OC\PlatformBundle\Entity\Advert;
+use OC\PlatformBundle\Entity\Image;
 
 class AdvertController extends Controller
 {
@@ -24,29 +26,62 @@ class AdvertController extends Controller
 
     public function viewAction($id)
     {
-        // Ici, on récupérera l'annonce correspondante à l'id $id
+        // Recuperation du repository
+        $repository = $this->getDoctrine()->getManager()->getRepository('OCPlatformBundle:Advert');
 
-        return $this->render('OCPlatformBundle:Advert:view.html.twig', array(
-            'id' => $id
-        ));
+        // Recuperation de l'entité correspondante
+        $advert = $repository->find($id);
+
+        // $advert est donc une instance de OC\PlatformBundle\Entit\Advert
+        // ou null si l'id $id n'existe pas, où ce if :
+        if (null === $advert){
+            throw new NotFoundHttpException("L'annonce d'id".$id."n'existe pas.");
+        }
+
+        // Le render ne chande pas, on passait avant un tableau, maintenant un objet.
+        return $this->render('OCPlatformBundle:Advert:view.html.twig',array('advert'=>$advert));
     }
 
     public function addAction(Request $request)
     {
-        // La gestion d'un formulaire est particulière, mais l'idée est la suivante :
+        // Création de l'entité Advert
+        $advert = new Advert();
+        $advert->setTitle('Recherche développeur Symfony.');
+        $advert->setAuthor('Alexandre');
+        $advert->setContent("Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…");
 
-        // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
+        // Création de l'entité Image
+        $image = new Image();
+        $image->setUrl('http://sdz-upload.s3.amazonaws.com/prod/upload/job-de-reve.jpg');
+        $image->setAlt('Job de rêve');
+
+        // On lie l'image à l'annonce
+        $advert->setImage($image);
+
+        // On récupère l'EntityManager
+        $em = $this->getDoctrine()->getManager();
+
+        // Étape 1 : On « persiste » l'entité
+        $em->persist($advert);
+
+        // Étape 1 bis : si on n'avait pas défini le cascade={"persist"},
+        // on devrait persister à la main l'entité $image
+        // $em->persist($image);
+
+        // On flush tout ce qui a été persisté avant
+        $em->flush();
+
+        // Reste de la méthode qu'on avait déjà écrit
         if ($request->isMethod('POST')) {
-            // Ici, on s'occupera de la création et de la gestion du formulaire
-
             $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
 
             // Puis on redirige vers la page de visualisation de cettte annonce
-            return $this->redirectToRoute('oc_platform_view', array('id' => 5));
+            return $this->redirectToRoute('oc_platform_view', array('id' => $advert->getId()));
         }
 
         // Si on n'est pas en POST, alors on affiche le formulaire
-        return $this->render('OCPlatformBundle:Advert:add.html.twig');
+        return $this->render('OCPlatformBundle:Advert:view.html.twig', array('advert' => $advert,'id' => 1));
+
     }
 
     public function editAction($id, Request $request)

@@ -13,6 +13,10 @@
     {% for message in app.session.flashbag.get('info') %}
         <p>Message flash : {{ message }}</p>
     {% endfor %}
+
+    {% if advert.image is not null %}
+        <img src="{{ advert.image.url }}" alt="{{ advert.image.alt }}">
+    {% endif %}
 </div>
 
 <p>
