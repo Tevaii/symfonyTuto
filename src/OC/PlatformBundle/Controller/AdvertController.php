@@ -40,7 +40,7 @@ class AdvertController extends Controller
 
         $listApplication = $em->getRepository('OCPlatformBundle:Application')->findBy(array('advert'=>$advert));
 
-        return $this->render('OCPlatformBundle:Advert:view.html.twig',array('advert'=>$advert,'listApplication' => $listApplication));
+        return $this->render('OCPlatformBundle:Advert:view.html.twig',array('advert'=>$advert,'listApplication' => $listApplication,'id'=>$id));
 
     }
 
@@ -112,17 +112,28 @@ class AdvertController extends Controller
             $advert->addCategory($category);
         }
         $em -> flush();
-        
+
         return $this->render('OCPlatformBundle:Advert:edit.html.twig');
 
     }
 
     public function deleteAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
+
+
         // Ici, on récupérera l'annonce correspondant à $id
+        $advert = $em->getRepository('OCPlatformBundle:Advert')->find($id);
+        if($advert === null){
+            throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas");
+        }
 
         // Ici, on gérera la suppression de l'annonce en question
+        foreach ($advert->getCategories() as $category){
+            $advert->removeCategory($category);
+        }
 
+        $em -> flush();
         return $this->render('OCPlatformBundle:Advert:delete.html.twig');
     }
 }
