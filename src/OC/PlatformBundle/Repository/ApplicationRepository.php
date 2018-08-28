@@ -2,6 +2,8 @@
 
 namespace OC\PlatformBundle\Repository;
 
+use http\Exception\InvalidArgumentException;
+
 /**
  * ApplicationRepository
  *
@@ -10,4 +12,17 @@ namespace OC\PlatformBundle\Repository;
  */
 class ApplicationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getApplicationWithAdvert($limit)
+    {
+        if($limit === null){
+           throw new InvalidArgumentException("please specify max result of your query");
+        }
+
+        $qb = $this->createQueryBuilder('a');
+
+        $qb->innerJoin('a.advert','adv')->addSelect('adv');
+        $qb->setMaxResults($limit);
+
+        return $qb->getQuery()->getResult();
+    }
 }

@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Table(name="oc_advert")
  * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\AdvertRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Advert
 {
@@ -68,6 +69,22 @@ class Advert
    * @ORM\OneToMany(targetEntity="OC\PlatformBundle\Entity\Application", mappedBy="advert")
    */
   private $applications; // Notez le « s », une annonce est liée à plusieurs candidatures
+
+    /**
+     * @ORM\Column\(name="nb_applications", type="integer")
+     */
+  private $nbApplicaations = 0;
+
+  public function increaseApplication()
+  {
+      $this->nbApplicaations++;
+  }
+
+  public function decreaseApplication()
+  {
+      $this->nbApplicaations--;
+  }
+
 
   public function __construct()
   {
@@ -223,5 +240,12 @@ class Advert
   public function getApplications()
   {
     return $this->applications;
+  }
+  /**
+   * @ORM\PreUpdate
+   */
+  public function updateDate()
+  {
+      $this->setDate(new \Datetime());
   }
 }
