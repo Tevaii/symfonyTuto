@@ -125,4 +125,3 @@ class Application
         return $this->date;
     }
 }
-
