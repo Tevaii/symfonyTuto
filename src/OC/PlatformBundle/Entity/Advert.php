@@ -71,18 +71,18 @@ class Advert
   private $applications; // Notez le « s », une annonce est liée à plusieurs candidatures
 
     /**
-     * @ORM\Column\(name="nb_applications", type="integer")
+     * @ORM\Column(name="nb_applications", type="integer")
      */
-  private $nbApplicaations = 0;
+  private $nbApplications = 0;
 
   public function increaseApplication()
   {
-      $this->nbApplicaations++;
+      $this->nbApplications++;
   }
 
   public function decreaseApplication()
   {
-      $this->nbApplicaations--;
+      $this->nbApplications--;
   }
 
 
