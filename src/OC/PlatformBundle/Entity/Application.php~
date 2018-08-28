@@ -13,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Application
 {
     /**
+     * @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\Advert")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $advert;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -42,6 +48,10 @@ class Application
      */
     private $date;
 
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
 
     /**
      * Get id
@@ -125,4 +135,3 @@ class Application
         return $this->date;
     }
 }
-
