@@ -7,7 +7,7 @@ oc_platform_home:
         page:        1
     requirements:
         page: \d*
-
+    
 oc_platform_view:
     path:      /advert/{id}
     defaults:
