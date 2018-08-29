@@ -75,6 +75,11 @@ class Advert
      */
   private $nbApplications = 0;
 
+    /**
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
   public function increaseApplication()
   {
       $this->nbApplications++;
@@ -244,8 +249,8 @@ class Advert
   /**
    * @ORM\PreUpdate
    */
-  public function updateDate()
+  public function updateDateAt()
   {
-      $this->setDate(new \Datetime());
+      $this->updatedAt = new \DateTime();
   }
 }
