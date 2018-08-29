@@ -4,6 +4,7 @@
 
 namespace OC\PlatformBundle\Controller;
 
+use http\Env\Response;
 use OC\PlatformBundle\Entity\Advert;
 use OC\PlatformBundle\Entity\AdvertSkill;
 use OC\PlatformBundle\Entity\Application;
@@ -233,5 +234,17 @@ class AdvertController extends Controller
       // Tout l'intérêt est ici : le contrôleur passe les variables nécessaires au template !
       'listAdverts' => $listAdverts
     ));
+  }
+
+  public function testAction()
+  {
+      $advert = new Advert();
+      $advert->setTitle("Recherche développeur !");
+
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($advert);
+      $em->flush();
+
+      return new Response('Slug généré : '.$advert->getSlug());
   }
 }
