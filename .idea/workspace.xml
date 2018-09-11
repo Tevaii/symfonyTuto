@@ -2,12 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="091c8402-735f-4ecc-a6e4-7f5c07ad05fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Form/AdvertEditType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Advert.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Advert.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Image.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Image.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Form/AdvertEditType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Form/AdvertEditType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Form/AdvertType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Form/AdvertType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Form/CategoryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Form/CategoryType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Form/ImageType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Form/ImageType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Repository/AdvertRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Repository/AdvertRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Repository/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Repository/CategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/config/services.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/view.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/view.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +50,7 @@
           <entry key="conf" value="1" />
           <entry key="dist" value="93" />
           <entry key="json" value="59" />
-          <entry key="php" value="10984" />
+          <entry key="php" value="11959" />
           <entry key="twig" value="116" />
           <entry key="yml" value="2347" />
         </counts>
@@ -50,7 +59,7 @@
         <counts>
           <entry key="Dockerfile" value="66" />
           <entry key="JSON" value="59" />
-          <entry key="PHP" value="10984" />
+          <entry key="PHP" value="11959" />
           <entry key="PLAIN_TEXT" value="93" />
           <entry key="SmartyConfig" value="1" />
           <entry key="Twig" value="116" />
@@ -67,7 +76,8 @@
           <entry key="json" value="5" />
           <entry key="lock" value="2" />
           <entry key="md" value="2" />
-          <entry key="php" value="69" />
+          <entry key="php" value="72" />
+          <entry key="png" value="1" />
           <entry key="twig" value="16" />
           <entry key="yml" value="34" />
         </counts>
@@ -75,9 +85,10 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Dockerfile" value="5" />
+          <entry key="Image" value="1" />
           <entry key="JSON" value="7" />
           <entry key="Markdown" value="2" />
-          <entry key="PHP" value="70" />
+          <entry key="PHP" value="73" />
           <entry key="PLAIN_TEXT" value="14" />
           <entry key="SmartyConfig" value="1" />
           <entry key="Twig" value="16" />
@@ -91,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="96" column="5" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
+            <state relative-caret-position="892">
+              <caret line="183" column="5" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
               <folding>
                 <element signature="e#106#142#0#PHP" expanded="true" />
               </folding>
@@ -100,22 +111,43 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/form.html.twig">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Advert.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="153">
+              <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
+              <folding>
+                <element signature="e#44#92#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Form/ImageType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Form/AdvertType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="841">
-              <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
+            <state relative-caret-position="110">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Image.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="807">
+              <caret line="120" column="48" selection-start-line="120" selection-start-column="48" selection-end-line="120" selection-end-column="48" />
               <folding>
-                <element signature="e#42#94#0#PHP" expanded="true" />
+                <element signature="e#82#114#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,11 +156,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Form/AdvertEditType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-              <folding>
-                <element signature="e#42#82#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -136,8 +165,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Repository/CategoryRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+            <state relative-caret-position="221">
+              <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -156,33 +185,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
               <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="118" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/add.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Resources/config/routing.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/app_dev.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -246,8 +248,6 @@
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/config/services.yml" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Advert.php" />
-        <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Image.php" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Application.php" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Skill.php" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/AdvertSkill.php" />
@@ -258,8 +258,6 @@
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/view.html.twig" />
         <option value="$PROJECT_DIR$/web/app_dev.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php" />
-        <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Form/ImageType.php" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Form/CategoryType.php" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/form.html.twig" />
         <option value="$PROJECT_DIR$/docker-compose2.yml.dist" />
@@ -267,6 +265,10 @@
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Category.php" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Form/AdvertEditType.php" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Form/AdvertType.php" />
+        <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Form/ImageType.php" />
+        <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Image.php" />
+        <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php" />
+        <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Advert.php" />
       </list>
     </option>
   </component>
@@ -439,6 +441,19 @@
               <item name="Symfony" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Symfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Symfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -496,12 +511,12 @@
       <workItem from="1535555533526" duration="12000" />
       <workItem from="1535699974471" duration="3792000" />
       <workItem from="1536565286536" duration="13732000" />
-      <workItem from="1536649450765" duration="2968000" />
+      <workItem from="1536649450765" duration="11503000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111489000" />
+    <option name="totallyTimeSpent" value="120024000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -556,13 +571,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -697,13 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Image.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1117">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Skill.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
@@ -788,20 +789,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Form/ImageType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Advert.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Form/CategoryType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -842,18 +829,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="96" column="5" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
-          <folding>
-            <element signature="e#106#142#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="765">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>
@@ -866,8 +843,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Repository/CategoryRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+        <state relative-caret-position="221">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -880,20 +857,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Form/AdvertEditType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="e#42#82#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Form/ImageType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Form/AdvertType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="841">
-          <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
+        <state relative-caret-position="110">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="807">
+          <caret line="120" column="48" selection-start-line="120" selection-start-column="48" selection-end-line="120" selection-end-column="48" />
           <folding>
-            <element signature="e#42#94#0#PHP" expanded="true" />
+            <element signature="e#82#114#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/uploads/img/5.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="892">
+          <caret line="183" column="5" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
+          <folding>
+            <element signature="e#106#142#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Advert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
+          <folding>
+            <element signature="e#44#92#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
