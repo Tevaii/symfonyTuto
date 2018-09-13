@@ -12,7 +12,7 @@ class CoreController extends Controller
   public function indexAction()
   {
       if(!$this->get('security.authorization_checker')->isGranted('ROLE_USER')){
-          return $this->redirectToRoute('login');
+          return $this->redirectToRoute('fos_user_security_login');
       }
     // On retourne simplement la vue de la page d'accueil
     // L'affichage des 3 dernières annonces utilisera le contrôleur déjà existant dans PlatformBundle
